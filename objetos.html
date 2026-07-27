@@ -604,20 +604,24 @@
 
     <section class="grid">
 
-      <!-- OBJETO I - CAJONERA -->
+      <!-- ============================================================ -->
+      <!-- OBJETO I - CAJONERA                                            -->
+      <!-- ============================================================ -->
       <div class="obra">
         <div class="modelo-3d">
-          <img src="./preview/cajonera.png" class="preview-obra" alt="Cajonera">
+          <img src="./preview/Cajonera.png" class="preview-obra" alt="Cajonera">
         </div>
         <h2>Cajonera</h2>
-        <p>Mueble de diseño · Madera</p>
-        <p>Año 2025 · Pieza única</p>
-        <button class="btn-3d" data-model="./cajonera.glb">Ver en 3D</button>
+        <p>Madera · 60x40x80cm</p>
+        <p>Año 2024 · Pieza única</p>
+        <button class="btn-3d" data-model="./Cajonera.glb">Ver en 3D</button>
         <a href="https://mail.google.com/mail/?view=cm&fs=1&to=lucila.loholaberry.id@gmail.com&su=Consulta%20sobre%20la%20Cajonera&body=Hola%20Lucila,%20me%20interesa%20la%20Cajonera." class="btn-consultar btn-pc" target="_blank">Consultar</a>
         <a href="mailto:lucila.loholaberry.id@gmail.com?subject=Consulta%20sobre%20la%20Cajonera&body=Hola%20Lucila,%20me%20interesa%20la%20Cajonera." class="btn-consultar btn-movil">Consultar</a>
       </div>
 
-      <!-- OBJETO II - LÁMPARA -->
+      <!-- ============================================================ -->
+      <!-- OBJETO II - LÁMPARA                                           -->
+      <!-- ============================================================ -->
       <div class="obra">
         <div class="modelo-3d">
           <img src="./preview/lampara_preview.png" class="preview-obra" alt="Lámpara Velador">
@@ -630,7 +634,9 @@
         <a href="mailto:lucila.loholaberry.id@gmail.com?subject=Consulta%20sobre%20la%20L%C3%A1mpara%20Velador&body=Hola%20Lucila,%20me%20interesa%20la%20L%C3%A1mpara%20Velador." class="btn-consultar btn-movil">Consultar</a>
       </div>
 
-      <!-- OBJETO III - MODELO DE PRUEBA -->
+      <!-- ============================================================ -->
+      <!-- OBJETO III - MODELO DE PRUEBA                                 -->
+      <!-- ============================================================ -->
       <div class="obra">
         <div class="modelo-3d">
           <img src="./preview/prueba_preview.png" class="preview-obra" alt="Modelo de prueba">
@@ -731,6 +737,7 @@
         boton.addEventListener("click", () => {
           const modeloPath = boton.dataset.model;
           if (modeloPath) {
+            // ===== OCULTAR CURSOR PERSONALIZADO =====
             if (cursor) {
               cursor.style.display = "none";
             }
@@ -773,6 +780,7 @@
         document.body.style.overflow = "";
         loaderContainer.classList.remove("oculto");
         
+        // ===== REACTIVAR CURSOR PERSONALIZADO =====
         if (cursor) {
           cursor.style.display = "";
         }
