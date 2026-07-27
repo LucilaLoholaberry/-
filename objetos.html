@@ -604,17 +604,17 @@
 
     <section class="grid">
 
-      <!-- OBJETO I - ESPEJO -->
+      <!-- OBJETO I - CAJONERA -->
       <div class="obra">
         <div class="modelo-3d">
-          <img src="./preview/espejo_preview.png" class="preview-obra" alt="Espejo Orgánico">
+          <img src="./preview/cajonera.png" class="preview-obra" alt="Cajonera">
         </div>
-        <h2>Espejo Orgánico</h2>
-        <p>Resina digital · 16X20cm</p>
-        <p>Año 2024 · Pieza única</p>
-        <button class="btn-3d" data-model="./espejo_cuadro.glb">Ver en 3D</button>
-        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=lucila.loholaberry.id@gmail.com&su=Consulta%20sobre%20el%20Espejo%20Org%C3%A1nico&body=Hola%20Lucila,%20me%20interesa%20el%20Espejo%20Org%C3%A1nico." class="btn-consultar btn-pc" target="_blank">Consultar</a>
-        <a href="mailto:lucila.loholaberry.id@gmail.com?subject=Consulta%20sobre%20el%20Espejo%20Org%C3%A1nico&body=Hola%20Lucila,%20me%20interesa%20el%20Espejo%20Org%C3%A1nico." class="btn-consultar btn-movil">Consultar</a>
+        <h2>Cajonera</h2>
+        <p>Mueble de diseño · Madera</p>
+        <p>Año 2025 · Pieza única</p>
+        <button class="btn-3d" data-model="./cajonera.glb">Ver en 3D</button>
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=lucila.loholaberry.id@gmail.com&su=Consulta%20sobre%20la%20Cajonera&body=Hola%20Lucila,%20me%20interesa%20la%20Cajonera." class="btn-consultar btn-pc" target="_blank">Consultar</a>
+        <a href="mailto:lucila.loholaberry.id@gmail.com?subject=Consulta%20sobre%20la%20Cajonera&body=Hola%20Lucila,%20me%20interesa%20la%20Cajonera." class="btn-consultar btn-movil">Consultar</a>
       </div>
 
       <!-- OBJETO II - LÁMPARA -->
@@ -731,7 +731,6 @@
         boton.addEventListener("click", () => {
           const modeloPath = boton.dataset.model;
           if (modeloPath) {
-            // ===== OCULTAR CURSOR PERSONALIZADO =====
             if (cursor) {
               cursor.style.display = "none";
             }
@@ -774,7 +773,6 @@
         document.body.style.overflow = "";
         loaderContainer.classList.remove("oculto");
         
-        // ===== REACTIVAR CURSOR PERSONALIZADO =====
         if (cursor) {
           cursor.style.display = "";
         }
