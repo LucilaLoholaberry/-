@@ -32,7 +32,6 @@
       font-weight: 400;
     }
 
-    /* ===== LOADER ===== */
     .loader-square-33 {
       display: inline-block;
       outline: 1px solid #E8A0FF;
@@ -60,7 +59,6 @@
       100% { transform: rotate(0deg); transform-origin: bottom center; margin-left: 0; margin-top: 0; }
     }
 
-    /* ===== CURSOR PERSONALIZADO (SOLO PC) ===== */
     @media (min-width: 769px) {
       * {
         cursor: none !important;
@@ -96,7 +94,6 @@
       }
     }
 
-    /* ===== NAV FIJO ===== */
     nav {
       position: fixed;
       top: 30px;
@@ -123,7 +120,6 @@
       background: rgba(232, 160, 255, 0.05);
     }
 
-    /* ===== CONTENEDOR PRINCIPAL ===== */
     main {
       max-width: 1100px;
       margin: 0 auto;
@@ -134,7 +130,6 @@
       align-items: center;
     }
 
-    /* ===== GRID (SCROLL HORIZONTAL) ===== */
     .grid {
       display: flex;
       gap: 40px;
@@ -153,7 +148,6 @@
       display: none;
     }
 
-    /* ===== TARJETA DE OBRA ===== */
     .obra {
       flex: 0 0 320px;
       border: 1px solid rgba(232, 160, 255, 0.3);
@@ -180,7 +174,6 @@
       z-index: 1;
     }
 
-    /* ===== CONTENEDOR 3D ===== */
     .modelo-3d {
       width: 100%;
       height: 38vh;
@@ -196,7 +189,6 @@
       justify-content: center;
     }
 
-    /* ===== IMAGEN PREVIEW ===== */
     .preview-obra {
       width: 100%;
       height: 100%;
@@ -205,7 +197,6 @@
       margin: auto;
     }
 
-    /* ===== TEXTO DE LA OBRA ===== */
     .obra h2 {
       font-family: 'Inter', sans-serif;
       font-weight: 700;
@@ -228,12 +219,10 @@
       text-align: center;
     }
 
-    /* ===== INSTRUCCIÓN ===== */
     .instruccion {
       display: none;
     }
 
-    /* ===== BOTÓN VER EN 3D ===== */
     .btn-3d {
       display: block;
       width: 180px;
@@ -256,7 +245,6 @@
       background: rgba(232, 160, 255, 0.05);
     }
 
-    /* ===== BOTÓN CONSULTAR ===== */
     .btn-consultar {
       display: block;
       width: 180px;
@@ -282,7 +270,6 @@
       background: rgba(232, 160, 255, 0.05);
     }
 
-    /* ===== BOTONES POR DISPOSITIVO ===== */
     .btn-pc {
       display: inline-block;
     }
@@ -291,7 +278,6 @@
       display: none;
     }
 
-    /* ===== OCULTAR ELEMENTOS DE MODEL VIEWER ===== */
     model-viewer::part(default-progress-bar),
     model-viewer::part(default-ar-button),
     model-viewer::part(default-poster) {
@@ -314,7 +300,6 @@
       display: none !important;
     }
 
-    /* ===== VISOR 3D FLOTANTE ===== */
     #visor3d {
       position: fixed;
       inset: 0;
@@ -387,7 +372,6 @@
       font-family: 'Inter', sans-serif;
     }
 
-    /* ===== INDICADOR DE SCROLL CON SVG ===== */
     .scroll-indicator {
       position: fixed;
       right: 6vw;
@@ -424,7 +408,6 @@
       100% { transform: translateX(0); opacity: 0.4; }
     }
 
-    /* ===== OPTIMIZACIONES PARA MÓVIL ===== */
     @media (max-width: 768px) {
       nav {
         gap: 15px;
@@ -529,7 +512,6 @@
       }
     }
 
-    /* ===== PANTALLAS MUY PEQUEÑAS ===== */
     @media (max-width: 480px) {
       .obra {
         flex: 0 0 90vw;
@@ -589,7 +571,6 @@
 
 <body>
 
-  <!-- MENÚ FIJO -->
   <nav>
     <a href="index.html">INICIO</a>
     <a href="tienda.html">TIENDA</a>
@@ -600,9 +581,7 @@
 
     <section class="grid">
 
-      <!-- ============================================================ -->
-      <!-- OBJETO I - CAJONERA                                            -->
-      <!-- ============================================================ -->
+      <!-- OBJETO I - CAJONERA -->
       <div class="obra">
         <div class="modelo-3d">
           <img src="./preview/Cajonera.png" class="preview-obra" alt="Cajonera">
@@ -615,9 +594,7 @@
         <a href="mailto:lucila.loholaberry.id@gmail.com?subject=Consulta%20sobre%20la%20Cajonera&body=Hola%20Lucila,%20me%20interesa%20la%20Cajonera." class="btn-consultar btn-movil">Consultar</a>
       </div>
 
-      <!-- ============================================================ -->
-      <!-- OBJETO II - APARADOR                                          -->
-      <!-- ============================================================ -->
+      <!-- OBJETO II - APARADOR -->
       <div class="obra">
         <div class="modelo-3d">
           <img src="./preview/Aparador.png" class="preview-obra" alt="Aparador">
@@ -630,9 +607,7 @@
         <a href="mailto:lucila.loholaberry.id@gmail.com?subject=Consulta%20sobre%20el%20Aparador&body=Hola%20Lucila,%20me%20interesa%20el%20Aparador." class="btn-consultar btn-movil">Consultar</a>
       </div>
 
-      <!-- ============================================================ -->
-      <!-- OBJETO III - LÁMPARA                                          -->
-      <!-- ============================================================ -->
+      <!-- OBJETO III - LÁMPARA -->
       <div class="obra">
         <div class="modelo-3d">
           <img src="./preview/lampara_preview.png" class="preview-obra" alt="Lámpara Velador">
@@ -645,9 +620,7 @@
         <a href="mailto:lucila.loholaberry.id@gmail.com?subject=Consulta%20sobre%20la%20L%C3%A1mpara%20Velador&body=Hola%20Lucila,%20me%20interesa%20la%20L%C3%A1mpara%20Velador." class="btn-consultar btn-movil">Consultar</a>
       </div>
 
-      <!-- ============================================================ -->
-      <!-- OBJETO IV - MODELO DE PRUEBA                                  -->
-      <!-- ============================================================ -->
+      <!-- OBJETO IV - MODELO DE PRUEBA -->
       <div class="obra">
         <div class="modelo-3d">
           <img src="./preview/prueba_preview.png" class="preview-obra" alt="Modelo de prueba">
@@ -664,13 +637,11 @@
 
   </main>
 
-  <!-- ===== INDICADOR DE SCROLL CON SVG ===== -->
   <div class="scroll-indicator" id="scrollIndicator">
     <span class="arrow-text">Deslizar</span>
     <img src="./resources/flecha.svg" alt="" class="scroll-svg">
   </div>
 
-  <!-- ===== VISOR 3D FLOTANTE ===== -->
   <div id="visor3d">
     <button id="cerrar3d">✕</button>
     <div class="visor-wrapper" id="visorWrapper">
@@ -681,13 +652,10 @@
     <div class="label-3d">🖱️ Haz clic y arrastra para rotar</div>
   </div>
 
-  <!-- ===== SCRIPT ===== -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      // ===== VARIABLE GLOBAL PARA EL CURSOR =====
       let cursor = null;
 
-      // ===== CURSOR PERSONALIZADO (SOLO EN PC) =====
       if (window.innerWidth > 768) {
         cursor = document.createElement("div");
         cursor.className = "cursor-loader";
@@ -706,14 +674,12 @@
           el.addEventListener("mouseenter", () => {
             cursor.classList.add("activo");
           });
-
           el.addEventListener("mouseleave", () => {
             cursor.classList.remove("activo");
           });
         });
       }
 
-      // ===== VISOR 3D =====
       const visor = document.getElementById("visor3d");
       const cerrar = document.getElementById("cerrar3d");
       const wrapper = document.getElementById("visorWrapper");
@@ -734,12 +700,16 @@
         mv.setAttribute("auto-rotate", "");
         mv.setAttribute("auto-rotate-delay", "0");
         mv.setAttribute("rotation-per-second", "8deg");
-        // 🔆 ILUMINACIÓN DEL SNIPPET DEL APARADOR
+        
+        // 🔆 ILUMINACIÓN CORRECTA DEL SNIPPET
         mv.setAttribute("shadow-intensity", "0.27");
         mv.setAttribute("shadow-softness", "1");
         mv.setAttribute("exposure", "1.03");
         mv.setAttribute("tone-mapping", "neutral");
-        mv.setAttribute("environment-image", "neutral");
+        
+        // ✅ CORRECCIÓN: Ruta al HDR en resources
+        mv.setAttribute("environment-image", "./resources/aircraft_workshop_01_1k.hdr");
+        
         mv.setAttribute("interaction-prompt", "none");
         mv.setAttribute("src", rutaGLB);
         mv.style.cssText = "width:100%;height:100%;background:transparent;display:block;";
@@ -751,7 +721,6 @@
         boton.addEventListener("click", () => {
           const modeloPath = boton.dataset.model;
           if (modeloPath) {
-            // ===== OCULTAR CURSOR PERSONALIZADO =====
             if (cursor) {
               cursor.style.display = "none";
             }
@@ -794,7 +763,6 @@
         document.body.style.overflow = "";
         loaderContainer.classList.remove("oculto");
         
-        // ===== REACTIVAR CURSOR PERSONALIZADO =====
         if (cursor) {
           cursor.style.display = "";
         }
@@ -827,7 +795,6 @@
         }
       }, true);
 
-      // ===== SCROLL HORIZONTAL CON RUEDA DEL MOUSE =====
       const grid = document.querySelector(".grid");
       const indicador = document.getElementById("scrollIndicator");
       
