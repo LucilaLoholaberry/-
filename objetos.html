@@ -196,14 +196,13 @@
       justify-content: center;
     }
 
-    /* ===== IMAGEN PREVIEW (CORREGIDA) ===== */
+    /* ===== IMAGEN PREVIEW ===== */
     .preview-obra {
       width: 100%;
       height: 100%;
-      object-fit: cover; /* <-- CAMBIO CLAVE: ahora recorta para llenar el espacio */
+      object-fit: cover;
       display: block;
       margin: auto;
-      /* Eliminamos transform: scale(1.20) */
     }
 
     /* ===== TEXTO DE LA OBRA ===== */
@@ -388,9 +387,7 @@
       font-family: 'Inter', sans-serif;
     }
 
-    /* ========================================================= */
-    /* ===== INDICADOR DE SCROLL CON SVG ======================= */
-    /* ========================================================= */
+    /* ===== INDICADOR DE SCROLL CON SVG ===== */
     .scroll-indicator {
       position: fixed;
       right: 6vw;
@@ -510,7 +507,6 @@
         font-size: 10px;
       }
 
-      /* ===== INDICADOR EN MÓVIL ===== */
       .scroll-indicator {
         right: 5vw;
         bottom: 20px;
@@ -620,7 +616,22 @@
       </div>
 
       <!-- ============================================================ -->
-      <!-- OBJETO II - LÁMPARA                                           -->
+      <!-- OBJETO II - APARADOR                                          -->
+      <!-- ============================================================ -->
+      <div class="obra">
+        <div class="modelo-3d">
+          <img src="./preview/Aparador.png" class="preview-obra" alt="Aparador">
+        </div>
+        <h2>Aparador</h2>
+        <p>Mueble contenedor · Diseño escultórico</p>
+        <p>Año 2026 · Pieza a medida</p>
+        <button class="btn-3d" data-model="./Aparador.glb">Ver en 3D</button>
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=lucila.loholaberry.id@gmail.com&su=Consulta%20sobre%20el%20Aparador&body=Hola%20Lucila,%20me%20interesa%20el%20Aparador." class="btn-consultar btn-pc" target="_blank">Consultar</a>
+        <a href="mailto:lucila.loholaberry.id@gmail.com?subject=Consulta%20sobre%20el%20Aparador&body=Hola%20Lucila,%20me%20interesa%20el%20Aparador." class="btn-consultar btn-movil">Consultar</a>
+      </div>
+
+      <!-- ============================================================ -->
+      <!-- OBJETO III - LÁMPARA                                          -->
       <!-- ============================================================ -->
       <div class="obra">
         <div class="modelo-3d">
@@ -635,7 +646,7 @@
       </div>
 
       <!-- ============================================================ -->
-      <!-- OBJETO III - MODELO DE PRUEBA                                 -->
+      <!-- OBJETO IV - MODELO DE PRUEBA                                  -->
       <!-- ============================================================ -->
       <div class="obra">
         <div class="modelo-3d">
@@ -723,9 +734,12 @@
         mv.setAttribute("auto-rotate", "");
         mv.setAttribute("auto-rotate-delay", "0");
         mv.setAttribute("rotation-per-second", "8deg");
-        mv.setAttribute("shadow-intensity", "1.5");
-        mv.setAttribute("exposure", "0.86");
+        // 🔆 ILUMINACIÓN DEL SNIPPET DEL APARADOR
+        mv.setAttribute("shadow-intensity", "0.27");
+        mv.setAttribute("shadow-softness", "1");
+        mv.setAttribute("exposure", "1.03");
         mv.setAttribute("tone-mapping", "neutral");
+        mv.setAttribute("environment-image", "neutral");
         mv.setAttribute("interaction-prompt", "none");
         mv.setAttribute("src", rutaGLB);
         mv.style.cssText = "width:100%;height:100%;background:transparent;display:block;";
