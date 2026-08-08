@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Portfolio | Muscarina</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+  <!-- GOOGLE FONTS INTER -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
     * {
@@ -12,188 +14,359 @@
       box-sizing: border-box;
     }
 
+    html,
     body {
-      background-color: #0f0f0f;
-      color: #f2f2f2;
-      font-family: Arial, Helvetica, sans-serif;
-      min-height: 100vh;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
     }
 
-    /* ========== HEADER FIJO (EXACTAMENTE COMO EL ORIGINAL) ========== */
+    body {
+      background-color: #000018;
+      color: #E8A0FF;
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+    }
+
+    /* ===== CURSOR PERSONALIZADO (SOLO PC) ===== */
+    @media (min-width: 769px) {
+      * {
+        cursor: none !important;
+      }
+
+      .cursor-loader {
+        position: fixed;
+        width: 50px;
+        height: 50px;
+        pointer-events: none;
+        transform: translate(-50%, -50%) scale(0.5);
+        z-index: 999999;
+        transition: transform 0.25s ease;
+      }
+
+      .cursor-loader .loader-square-33::before {
+        animation-play-state: paused;
+      }
+
+      .cursor-loader.activo {
+        transform: translate(-50%, -50%) scale(0.7);
+      }
+
+      .cursor-loader.activo .loader-square-33::before {
+        animation-play-state: running;
+      }
+    }
+
+    /* ===== LOADER (para cursor) ===== */
+    .loader-square-33 {
+      display: inline-block;
+      outline: 1px solid #E8A0FF;
+      width: 50px;
+      height: 50px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .loader-square-33::before {
+      content: "";
+      background: #E8A0FF;
+      width: 5px;
+      height: 53px;
+      transform-origin: top center;
+      animation: anm-SL-33-move 2.5s infinite linear;
+      display: inline-block;
+    }
+
+    @keyframes anm-SL-33-move {
+      0% { transform: rotate(0deg); }
+      25% { transform: rotate(-90deg); margin-left: -5px; margin-top: 0; transform-origin: top center; }
+      50% { margin-left: -5px; margin-top: 45px; transform-origin: top center; transform: rotate(-90deg); }
+      75% { margin-left: 45px; margin-top: 0; transform-origin: bottom center; transform: rotate(0deg); }
+      100% { transform: rotate(0deg); transform-origin: bottom center; margin-left: 0; margin-top: 0; }
+    }
+
+    /* ===== NAV FIJO ===== */
     nav {
       position: fixed;
-      top: 0;
-      width: 100%;
-      padding: 20px;
+      top: 30px;
+      left: 0;
+      right: 0;
       display: flex;
       justify-content: center;
-      gap: 40px;
-      background: rgba(15, 15, 15, 0.9);
-      backdrop-filter: blur(6px);
-      z-index: 1000;
+      gap: 28px;
+      z-index: 100;
     }
 
     nav a {
-      color: #f2f2f2;
-      text-decoration: none;
-      font-size: 14px;
+      padding: 10px 18px;
+      font-size: 13px;
       letter-spacing: 2px;
-      text-transform: uppercase;
-      transition: opacity 0.3s;
+      font-weight: 400;
+      border: 1px solid rgba(232, 160, 255, 0.4);
+      color: #E8A0FF;
+      text-decoration: none;
+      transition: all 0.3s ease;
     }
 
     nav a:hover {
+      background: rgba(232, 160, 255, 0.05);
+    }
+
+    /* ===== CONTENEDOR PRINCIPAL ===== */
+    main {
+      width: 100%;
+      height: 100dvh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    /* ===== SCROLL HORIZONTAL DE IMÁGENES ===== */
+    .imagenes-scroll {
+      display: flex;
+      gap: 0;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      width: 100%;
+      height: 100%;
+      padding: 100px 0 60px;
+    }
+
+    .imagenes-scroll::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* ===== CADA IMAGEN ===== */
+    .imagen-item {
+      flex: 0 0 auto;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 10px;
+    }
+
+    .imagen-item img {
+      height: 100%;
+      width: auto;
+      max-width: 90vw;
+      object-fit: contain;
+      display: block;
+    }
+
+    /* ===== INDICADOR DE SCROLL ===== */
+    .scroll-indicator {
+      position: fixed;
+      right: 6vw;
+      bottom: 35px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      z-index: 300;
+      cursor: pointer;
+      transition: opacity 0.4s ease;
+    }
+
+    .scroll-indicator .arrow-text {
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #E8A0FF;
       opacity: 0.6;
     }
 
-    /* ========== FONDO FIJO CON IMAGEN ========== */
-    .fondo-fijo {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100vh;
-      z-index: -1;
-      background-image: url('https://via.placeholder.com/1920x1080/1a1a1a/ffffff?text=TU+IMAGEN+DE+FONDO+AQUI');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
-
-    /* ========== GALERÍA QUE SCROLLEA ========== */
-    .portfolio-scroll {
-      position: relative;
-      z-index: 1;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 100px 20px 60px;
-    }
-
-    /* Grid de imágenes */
-    .grid-imagenes {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-      gap: 30px;
-    }
-
-    /* Cada imagen del portfolio */
-    .portfolio-item {
-      background: transparent;
-      overflow: hidden;
-      transition: transform 0.3s ease, opacity 0.3s ease;
-    }
-
-    .portfolio-item:hover {
-      transform: translateY(-8px);
-    }
-
-    .portfolio-item img {
-      width: 100%;
-      height: auto;
+    .scroll-svg {
       display: block;
-      transition: transform 0.5s ease;
+      width: 80px;
+      height: auto;
+      opacity: 0.6;
+      animation: svgPulse 2.2s infinite ease-in-out;
     }
 
-    .portfolio-item:hover img {
-      transform: scale(1.03);
+    @keyframes svgPulse {
+      0% { transform: translateX(0); opacity: 0.4; }
+      50% { transform: translateX(8px); opacity: 0.9; }
+      100% { transform: translateX(0); opacity: 0.4; }
     }
 
-    /* Pie de página simple */
-    footer {
-      text-align: center;
-      padding: 40px 20px;
-      font-size: 11px;
-      opacity: 0.4;
-      position: relative;
-      z-index: 1;
-    }
-
-    /* Responsive */
+    /* ===== RESPONSIVE ===== */
     @media (max-width: 768px) {
       nav {
-        gap: 25px;
-        padding: 15px;
+        gap: 15px;
+        top: 15px;
       }
-      
+
       nav a {
         font-size: 11px;
-        letter-spacing: 1.5px;
+        letter-spacing: 1px;
+        padding: 6px 12px;
       }
-      
-      .grid-imagenes {
-        grid-template-columns: 1fr;
-        gap: 20px;
+
+      .imagenes-scroll {
+        padding: 80px 0 40px;
       }
-      
-      .portfolio-scroll {
-        padding: 80px 15px 40px;
+
+      .imagen-item img {
+        max-width: 95vw;
+      }
+
+      .scroll-indicator {
+        right: 5vw;
+        bottom: 20px;
+        gap: 10px;
+      }
+
+      .scroll-indicator .arrow-text {
+        font-size: 10px;
+        letter-spacing: 0.15em;
+      }
+
+      .scroll-svg {
+        width: 120px;
+      }
+
+      @keyframes svgPulse {
+        0% { transform: translateX(0); opacity: 0.4; }
+        50% { transform: translateX(6px); opacity: 0.9; }
+        100% { transform: translateX(0); opacity: 0.4; }
+      }
+    }
+
+    @media (max-width: 480px) {
+      .scroll-indicator {
+        right: 4vw;
+        bottom: 16px;
+        gap: 8px;
+      }
+
+      .scroll-indicator .arrow-text {
+        font-size: 9px;
+        letter-spacing: 0.1em;
+      }
+
+      .scroll-svg {
+        width: 90px;
       }
     }
   </style>
 </head>
+
 <body>
 
-  <!-- FONDO FIJO (CAMBIA LA URL DE LA IMAGEN) -->
-  <div class="fondo-fijo"></div>
-
-  <!-- MENÚ SUPERIOR (IGUAL AL ORIGINAL) -->
+  <!-- MENÚ FIJO -->
   <nav>
-    <a href="index.html">Inicio</a>
-    <a href="tienda.html">Tienda</a>
-    <a href="bio.html">Portfolio</a>
+    <a href="index.html">INICIO</a>
+    <a href="tienda.html">TIENDA</a>
+    <a href="bio.html">PORTFOLIO</a>
   </nav>
 
-  <!-- GALERÍA DE IMÁGENES QUE SCROLLEA -->
-  <div class="portfolio-scroll">
-    <div class="grid-imagenes">
-      
-      <!-- IMAGEN 1 - REEMPLAZA CON TU PROPIA IMAGEN -->
-      <div class="portfolio-item">
-        <img src="https://via.placeholder.com/600x800/2a2a2a/ffffff?text=OBRA+1" alt="Proyecto 1">
+  <!-- IMÁGENES CON SCROLL HORIZONTAL -->
+  <main>
+    <div class="imagenes-scroll">
+
+      <!-- IMAGEN 1 -->
+      <div class="imagen-item">
+        <img src="https://via.placeholder.com/800x1000/2a2a2a/E8A0FF?text=OBRA+1" alt="Proyecto 1">
       </div>
-      
+
       <!-- IMAGEN 2 -->
-      <div class="portfolio-item">
-        <img src="https://via.placeholder.com/600x800/333333/ffffff?text=OBRA+2" alt="Proyecto 2">
+      <div class="imagen-item">
+        <img src="https://via.placeholder.com/800x1000/333333/E8A0FF?text=OBRA+2" alt="Proyecto 2">
       </div>
-      
+
       <!-- IMAGEN 3 -->
-      <div class="portfolio-item">
-        <img src="https://via.placeholder.com/600x800/2a2a2a/ffffff?text=OBRA+3" alt="Proyecto 3">
+      <div class="imagen-item">
+        <img src="https://via.placeholder.com/800x1000/2a2a2a/E8A0FF?text=OBRA+3" alt="Proyecto 3">
       </div>
-      
+
       <!-- IMAGEN 4 -->
-      <div class="portfolio-item">
-        <img src="https://via.placeholder.com/600x800/333333/ffffff?text=OBRA+4" alt="Proyecto 4">
+      <div class="imagen-item">
+        <img src="https://via.placeholder.com/800x1000/333333/E8A0FF?text=OBRA+4" alt="Proyecto 4">
       </div>
-      
+
       <!-- IMAGEN 5 -->
-      <div class="portfolio-item">
-        <img src="https://via.placeholder.com/600x800/2a2a2a/ffffff?text=OBRA+5" alt="Proyecto 5">
+      <div class="imagen-item">
+        <img src="https://via.placeholder.com/800x1000/2a2a2a/E8A0FF?text=OBRA+5" alt="Proyecto 5">
       </div>
-      
+
       <!-- IMAGEN 6 -->
-      <div class="portfolio-item">
-        <img src="https://via.placeholder.com/600x800/333333/ffffff?text=OBRA+6" alt="Proyecto 6">
+      <div class="imagen-item">
+        <img src="https://via.placeholder.com/800x1000/333333/E8A0FF?text=OBRA+6" alt="Proyecto 6">
       </div>
-      
+
       <!-- IMAGEN 7 -->
-      <div class="portfolio-item">
-        <img src="https://via.placeholder.com/600x800/2a2a2a/ffffff?text=OBRA+7" alt="Proyecto 7">
+      <div class="imagen-item">
+        <img src="https://via.placeholder.com/800x1000/2a2a2a/E8A0FF?text=OBRA+7" alt="Proyecto 7">
       </div>
-      
+
       <!-- IMAGEN 8 -->
-      <div class="portfolio-item">
-        <img src="https://via.placeholder.com/600x800/333333/ffffff?text=OBRA+8" alt="Proyecto 8">
+      <div class="imagen-item">
+        <img src="https://via.placeholder.com/800x1000/333333/E8A0FF?text=OBRA+8" alt="Proyecto 8">
       </div>
-      
+
       <!-- IMAGEN 9 -->
-      <div class="portfolio-item">
-        <img src="https://via.placeholder.com/600x800/2a2a2a/ffffff?text=OBRA+9" alt="Proyecto 9">
+      <div class="imagen-item">
+        <img src="https://via.placeholder.com/800x1000/2a2a2a/E8A0FF?text=OBRA+9" alt="Proyecto 9">
       </div>
-      
+
     </div>
+  </main>
+
+  <!-- INDICADOR DE SCROLL -->
+  <div class="scroll-indicator" id="scrollIndicator">
+    <span class="arrow-text">Deslizar</span>
+    <img src="./resources/flecha.svg" alt="" class="scroll-svg">
   </div>
-  
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // ===== CURSOR PERSONALIZADO (SOLO PC) =====
+      if (window.innerWidth > 768) {
+        const cursor = document.createElement("div");
+        cursor.className = "cursor-loader";
+        cursor.id = "cursor";
+        cursor.innerHTML = '<div class="loader-square-33"></div>';
+        document.body.appendChild(cursor);
+
+        document.addEventListener("mousemove", (e) => {
+          cursor.style.left = e.clientX + "px";
+          cursor.style.top = e.clientY + "px";
+        });
+
+        const elementosInteractivos = document.querySelectorAll("a, .imagen-item, nav a");
+        elementosInteractivos.forEach(el => {
+          el.addEventListener("mouseenter", () => cursor.classList.add("activo"));
+          el.addEventListener("mouseleave", () => cursor.classList.remove("activo"));
+        });
+      }
+
+      // ===== SCROLL HORIZONTAL CON RUEDA DEL MOUSE =====
+      const scrollContainer = document.querySelector(".imagenes-scroll");
+      const indicador = document.getElementById("scrollIndicator");
+      
+      if (scrollContainer && indicador) {
+        scrollContainer.addEventListener("wheel", (e) => {
+          e.preventDefault();
+          scrollContainer.scrollLeft += e.deltaY;
+        }, { passive: false });
+
+        scrollContainer.addEventListener("scroll", () => {
+          indicador.style.opacity = scrollContainer.scrollLeft > 20 ? "0" : "1";
+        });
+
+        indicador.addEventListener("click", () => {
+          scrollContainer.scrollBy({ left: 400, behavior: "smooth" });
+          indicador.style.opacity = "0";
+        });
+      }
+    });
+  </script>
+
 </body>
 </html>
